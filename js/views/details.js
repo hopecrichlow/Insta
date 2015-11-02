@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+ PhotoModel,
+ PhotoCollection
+} from '../resources';
+
 
 let car = React.createClass({
 
@@ -10,13 +15,15 @@ let car = React.createClass({
   render(data) {
     return (
       
-      <div className="photo" key={this.props.photo.objectId} 
+      <div className="photo" key={this.props.data.objectId} 
           onSelect={this.clickHandler}>
         <image src={this.props.data.photo}/>
-        <div className="details">{this.data.details}
+        <div className="details">{this.props.data.details}
         </div>
-        <button>Edit</button>
-        <button>Back</button>
+        <div className="image-button">
+          <button>Edit</button>
+          <button>Back</button>
+        </div>
       </div>
     );
   }

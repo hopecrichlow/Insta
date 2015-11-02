@@ -7,7 +7,7 @@ import {PhotoCollection} from './resources';
 
 import {
   Photos as HomeView, 
-  Cars as DetailsView,
+  Car as DetailsView,
   Edit as EditView, 
   Add as AddView,
   Spinner
@@ -21,7 +21,7 @@ export default Backbone.Router.extend( {
   routes: {
     ""          : "redirectToPhotos",
     "photos"    : "showPhotos",
-    "photo/:id" : "showPhoto", 
+    "photo/:id" : "showDetails", 
     "add"       : "showAdd",
     "edit/:id"   : "showEdit"
 
@@ -62,8 +62,8 @@ export default Backbone.Router.extend( {
   },
 
 
-  showImage(id) {
-    console.log('show image page');
+  showDetails(id) {
+    console.log('show details page');
     let img = this.photos.get(id);
 
     if (img) {

@@ -184,7 +184,7 @@ exports['default'] = _backbone2['default'].Router.extend({
   routes: {
     "": "redirectToPhotos",
     "photos": "showPhotos",
-    "photo/:id": "showPhoto",
+    "photo/:id": "showDetails",
     "add": "showAdd",
     "edit/:id": "showEdit"
 
@@ -220,10 +220,10 @@ exports['default'] = _backbone2['default'].Router.extend({
     });
   },
 
-  showImage: function showImage(id) {
+  showDetails: function showDetails(id) {
     var _this2 = this;
 
-    console.log('show image page');
+    console.log('show details page');
     var img = this.photos.get(id);
 
     if (img) {
@@ -238,7 +238,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     } else {
       img = this.photos.add({ objectId: id });
       img.fetch().then(function () {
-        _this2.render(_react2['default'].createElement(_views.Cars, {
+        _this2.render(_react2['default'].createElement(_views.Car, {
           onBackClick: function () {
             return _this2.goto('');
           },
@@ -374,55 +374,61 @@ exports["default"] = add;
 module.exports = exports["default"];
 
 },{"react":173}],9:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var car = _react2["default"].createClass({
-  displayName: "car",
+var _resources = require('../resources');
+
+var car = _react2['default'].createClass({
+  displayName: 'car',
 
   clickHandler: function clickHandler(event) {
     this.props.onSelect(this.props.id);
   },
 
   render: function render(data) {
-    return _react2["default"].createElement(
-      "div",
-      { className: "photo", key: this.props.photo.objectId,
+    return _react2['default'].createElement(
+      'div',
+      { className: 'photo', key: this.props.data.objectId,
         onSelect: this.clickHandler },
-      _react2["default"].createElement("image", { src: this.props.data.photo }),
-      _react2["default"].createElement(
-        "div",
-        { className: "details" },
-        this.data.details
+      _react2['default'].createElement('image', { src: this.props.data.photo }),
+      _react2['default'].createElement(
+        'div',
+        { className: 'details' },
+        this.props.data.details
       ),
-      _react2["default"].createElement(
-        "button",
-        null,
-        "Edit"
-      ),
-      _react2["default"].createElement(
-        "button",
-        null,
-        "Back"
+      _react2['default'].createElement(
+        'div',
+        { className: 'image-button' },
+        _react2['default'].createElement(
+          'button',
+          null,
+          'Edit'
+        ),
+        _react2['default'].createElement(
+          'button',
+          null,
+          'Back'
+        )
       )
     );
   }
 
 });
 
-exports["default"] = car;
-module.exports = exports["default"];
+exports['default'] = car;
+module.exports = exports['default'];
 
-},{"react":173}],10:[function(require,module,exports){
+},{"../resources":4,"react":173}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -504,6 +510,7 @@ var photos = _react2['default'].createClass({
   displayName: 'photos',
 
   selectHandler: function selectHandler(id) {
+    console.log('hi');
     this.props.onImageSelect(id);
   },
 
@@ -514,7 +521,7 @@ var photos = _react2['default'].createClass({
     return _react2['default'].createElement(
       'div',
       { key: data.objectId,
-        onImageSelect: function () {
+        onClick: function () {
           return _this.selectHandler(data.objectId);
         } },
       _react2['default'].createElement('image', { src: data.photo, id: data.objectId })
@@ -580,7 +587,11 @@ var photos = _react2['default'].createClass({
       _react2['default'].createElement(
         'div',
         { className: 'photo-list' },
-        this.props.data.map(this.processPhotos)
+        _react2['default'].createElement(
+          'div',
+          { className: 'thumbnail' },
+          this.props.data.map(this.processPhotos)
+        )
       ),
       _react2['default'].createElement(
         'div',

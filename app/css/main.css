@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Rochester);
 html {
   box-sizing: border-box; }
 
@@ -2024,7 +2025,159 @@ html {
 .fa-fonticons:before {
   content: ""; }
 
-body {
-  background: #e2ebf3; }
+.container {
+  width: 100%;
+  height: 100%; }
+
+.images-view {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FAFAFA; }
+  .images-view::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+header {
+  width: 100%;
+  height: 78px;
+  padding-top: 25px;
+  padding-left: 110px;
+  border-bottom: 1px solid #EDEEEE;
+  background-color: white; }
+  header h4 {
+    width: 100px;
+    margin: 0;
+    padding-left: 60px;
+    font-family: 'Rochester', cursive;
+    font-size: 19px;
+    float: left; }
+  header input {
+    border-radius: 15px;
+    border: solid 1px #edeeee;
+    font-size: 14px;
+    height: 30px;
+    outline: none;
+    margin-left: 295px;
+    padding: 3px 10px 3px 26px;
+    width: 220px;
+    text-align: center; }
+  header h5 {
+    width: 222px;
+    margin: 0;
+    padding-right: 151px;
+    float: right;
+    color: #125688;
+    font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif; }
+
+.profile {
+  margin-bottom: 45px;
+  margin: auto;
+  padding: 50px 50px;
+  width: 935px;
+  height: 140px;
+  margin: auto; }
+
+.profile-image {
+  margin-right: 0;
+  width: 152px;
+  height: 152px;
+  border-radius: 100px;
+  border: 1px solid grey;
+  float: left; }
+
+.profile-info {
+  width: 585px;
+  margin-right: 0;
+  float: right;
+  font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif; }
+
+.profile-snipit {
+  padding-top: 10px; }
+  .profile-snipit h3 {
+    width: 800px;
+    margin: 0;
+    color: #4b4f54;
+    font-size: 16px; }
+
+.profile-follow {
+  padding-top: 10px; }
+  .profile-follow h4 {
+    color: #4b4f54;
+    font-size: 16px;
+    display: inline;
+    padding-right: 20px; }
+
+.profile-title {
+  color: #4b4f54; }
+  .profile-title h3 {
+    width: 250px;
+    margin: 0;
+    font-size: 34px; }
+  .profile-title a {
+    width: 200px;
+    margin: 0; }
+
+.photo-list {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  clear: both; }
+  .photo-list:last-child {
+    margin-right: 0; }
+  .photo-list .tumbnail {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    .photo-list .tumbnail:last-child {
+      margin-right: 0; }
+    .photo-list .tumbnail:nth-child(4n) {
+      margin-right: 0; }
+    .photo-list .tumbnail:nth-child(4n+1) {
+      clear: left; }
+
+img {
+  margin: 15px;
+  width: 30%;
+  height: auto;
+  display: inline-block;
+  float: left; }
+
+.load-more {
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  border: 2px solid #468EE1;
+  border-radius: 100px;
+  clear: both; }
+  .load-more h4 {
+    font-size: 15px;
+    color: #468EE1;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 35px; }
+
+footer {
+  width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  height: 60px;
+  clear: both; }
+  footer ul {
+    float: left;
+    padding-left: 0; }
+  footer li {
+    display: inline;
+    padding-right: 30px;
+    font-size: 12px;
+    color: #19558C; }
+  footer div {
+    margin: 16px 16px;
+    float: right;
+    font-size: 12px;
+    padding-top: 2px; }
 
 /*# sourceMappingURL=main.css.map */
