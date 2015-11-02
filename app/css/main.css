@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Rochester);
 html {
   box-sizing: border-box; }
 
@@ -2050,7 +2049,7 @@ header {
     width: 100px;
     margin: 0;
     padding-left: 60px;
-    font-family: 'Rochester', cursive;
+    font-family: cursive;
     font-size: 19px;
     float: left; }
   header input {
@@ -2069,7 +2068,7 @@ header {
     padding-right: 151px;
     float: right;
     color: #125688;
-    font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif; }
+    font-family: Helvetica, sans-serif; }
 
 .profile {
   margin-bottom: 45px;
@@ -2091,7 +2090,7 @@ header {
   width: 585px;
   margin-right: 0;
   float: right;
-  font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif; }
+  font-family: Helvetica, sans-serif; }
 
 .profile-snipit {
   padding-top: 10px; }

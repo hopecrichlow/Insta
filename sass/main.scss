@@ -1,7 +1,6 @@
 @import "bourbon";
 @import "neat";
 @import "font-awesome";
-@import url(https://fonts.googleapis.com/css?family=Rochester);
 
 .container {
   width: 100%;
@@ -22,14 +21,13 @@ header {
   padding-left: 110px;
   border-bottom: 1px solid #EDEEEE;
   background-color: white;
-  // display: inline;
-  // float: left;
+
 
   h4 {
   width: 100px;
   margin: 0;
   padding-left: 60px;
-  font-family: 'Rochester', cursive;
+  font-family: cursive;
   font-size: 19px;
   float: left;
   }
@@ -52,7 +50,7 @@ header {
     padding-right: 151px;
     float: right;
     color: #125688;
-    font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-family: Helvetica, sans-serif;
 
   }
 }
@@ -65,7 +63,6 @@ header {
   width: 935px;
   height: 140px;
   margin: auto;
-  // display: inline;
 }
 
 .profile-image {
@@ -75,8 +72,6 @@ header {
   border-radius: 100px;
   border: 1px solid grey;
   float: left;
-
-  // background-image: 12074580_10101918451444953_7844651665022322350_n.jpg;
 }
 
 
@@ -84,8 +79,7 @@ header {
   width: 585px;
   margin-right: 0;
   float: right;
-  font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
-  
+  font-family: Helvetica, sans-serif;
 }
 
 
@@ -155,7 +149,6 @@ img {
   width: 120px;
   height: 120px;
   margin: auto;
-  // padding: 40px 0 40px 0;
   border: 2px solid #468EE1;
   border-radius: 100px;
   clear: both;
