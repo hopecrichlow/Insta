@@ -5,14 +5,10 @@
 .container {
   width: 100%;
   height: 100%;
-
+  margin: auto;
 }
 
-.images-view {
-  @include outer-container;
-  background-color: #FAFAFA;
 
-}
 
 header {
   width: 100%;
@@ -60,7 +56,7 @@ header {
   margin-bottom: 45px;
   margin: auto;
   padding: 50px 50px;
-  width: 935px;
+  // width: 935px;
   height: 140px;
   margin: auto;
 }
@@ -125,24 +121,32 @@ header {
     margin: 0;
   }
 }
-
+.images-view {
+  @include outer-container;
+  width: auto;
+  background-color: #FAFAFA;
+  // margin: auto;
+}
 
 .photo-list {
   @include span-columns(12);
-  clear: both;
+  @include shift(1);
   .tumbnail {
-    @include span-columns(3);
-    @include omega(4n);
+    @include span-columns(10);
     
   }
-}
+  div .displayed {
+    @include span-columns(3);
+    // @include omega();
 
-img {
-  margin: 15px;
-  width: 30%;
-  height: auto;
-  display: inline-block;
-  float: left;
+    display: inline;
+    // margin-left: 2.35765%;
+    img {
+      width: 225px;
+      height: 225px;
+      display: inline;
+    }
+  }
 }
 
 .load-more {
@@ -150,7 +154,7 @@ img {
   height: 120px;
   margin: auto;
   border: 2px solid #468EE1;
-  border-radius: 100px;
+  border-radius: 50px;
   clear: both;
 
   h4 {

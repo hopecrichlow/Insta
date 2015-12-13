@@ -5,15 +5,15 @@ import photo from './details';
 let photos = React.createClass( {
 
   selectHandler(id) {
-    console.log('hi');
+    console.log(this);
     this.props.onImageSelect(id)
   },
 
   processPhotos(data) {
     console.log('process photo');
     return (
-      <div key={data.objectId} 
-        onClick={() => this.selectHandler(data.objectId)}>
+      <div className="displayed" key={data.objectId} 
+      onClick={() => this.selectHandler(data.objectId)}>
         <image src={data.photo} id={data.objectId} />
        </div>
     );
@@ -47,7 +47,7 @@ let photos = React.createClass( {
         </div>
         <div className="photo-list">
           <div className="thumbnail">
-          {this.props.data.map(this.processPhotos) }
+          { this.props.data.map(this.processPhotos) }
           </div>
         </div>
         <div className="load-more"><h4>LOAD MORE</h4>

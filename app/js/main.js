@@ -173,6 +173,8 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+//Index contains both model and collecton
+
 var _resources = require('./resources');
 
 var _views = require('./views');
@@ -187,7 +189,6 @@ exports['default'] = _backbone2['default'].Router.extend({
     "photo/:id": "showDetails",
     "add": "showAdd",
     "edit/:id": "showEdit"
-
   },
 
   // Initialize//
@@ -210,7 +211,7 @@ exports['default'] = _backbone2['default'].Router.extend({
   showPhotos: function showPhotos() {
     var _this = this;
 
-    console.log('show photos page');
+    console.log(this, 'show photos page');
     this.photos.fetch().then(function () {
       _this.render(_react2['default'].createElement(_views.Photos, {
         onImageSelect: function (id) {
@@ -223,10 +224,10 @@ exports['default'] = _backbone2['default'].Router.extend({
   showDetails: function showDetails(id) {
     var _this2 = this;
 
-    console.log('show details page');
-    var img = this.photos.get(id);
+    console.log('show details page', this);
+    var pht = this.photos.get(id);
 
-    if (img) {
+    if (pht) {
       this.render(_react2['default'].createElement(_views.Photos, {
         onBackClick: function () {
           return _this2.goto('');
@@ -234,10 +235,10 @@ exports['default'] = _backbone2['default'].Router.extend({
         onEditClick: function (id) {
           return _this2.goto('edit/' + id);
         },
-        data: img.toJSON() }));
+        data: pht.toJSON() }));
     } else {
-      img = this.photos.add({ objectId: id });
-      img.fetch().then(function () {
+      pht = this.photos.add({ objectId: id });
+      pht.fetch().then(function () {
         _this2.render(_react2['default'].createElement(_views.Car, {
           onBackClick: function () {
             return _this2.goto('');
@@ -245,7 +246,7 @@ exports['default'] = _backbone2['default'].Router.extend({
           onEditClick: function (id) {
             return _this2.goto('edit/' + id);
           },
-          data: img.toJSON() }));
+          data: pht.toJSON() }));
       });
     }
   },
@@ -395,6 +396,18 @@ var car = _react2['default'].createClass({
     this.props.onSelect(this.props.id);
   },
 
+  editHandler: function editHandler(id) {
+    this.props.onEditSelect(id);
+  },
+
+  addHandler: function addHandler() {
+    this.props.onAddSelect();
+  },
+
+  backHandler: function backHandler() {
+    this.props.onBackSelect();
+  },
+
   render: function render(data) {
     return _react2['default'].createElement(
       'div',
@@ -418,6 +431,11 @@ var car = _react2['default'].createClass({
           'button',
           null,
           'Back'
+        ),
+        _react2['default'].createElement(
+          'button',
+          null,
+          'Add'
         )
       )
     );
@@ -510,7 +528,7 @@ var photos = _react2['default'].createClass({
   displayName: 'photos',
 
   selectHandler: function selectHandler(id) {
-    console.log('hi');
+    console.log(this);
     this.props.onImageSelect(id);
   },
 
@@ -520,7 +538,7 @@ var photos = _react2['default'].createClass({
     console.log('process photo');
     return _react2['default'].createElement(
       'div',
-      { key: data.objectId,
+      { className: 'displayed', key: data.objectId,
         onClick: function () {
           return _this.selectHandler(data.objectId);
         } },

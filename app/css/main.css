@@ -2026,17 +2026,8 @@ html {
 
 .container {
   width: 100%;
-  height: 100%; }
-
-.images-view {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #FAFAFA; }
-  .images-view::after {
-    clear: both;
-    content: "";
-    display: table; }
+  height: 100%;
+  margin: auto; }
 
 header {
   width: 100%;
@@ -2074,7 +2065,6 @@ header {
   margin-bottom: 45px;
   margin: auto;
   padding: 50px 50px;
-  width: 935px;
   height: 140px;
   margin: auto; }
 
@@ -2118,39 +2108,51 @@ header {
     width: 200px;
     margin: 0; }
 
+.images-view {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  background-color: #FAFAFA; }
+  .images-view::after {
+    clear: both;
+    content: "";
+    display: table; }
+
 .photo-list {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%;
-  clear: both; }
+  margin-left: 8.5298%; }
   .photo-list:last-child {
     margin-right: 0; }
   .photo-list .tumbnail {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 23.23176%; }
+    width: 82.94039%; }
     .photo-list .tumbnail:last-child {
       margin-right: 0; }
-    .photo-list .tumbnail:nth-child(4n) {
+  .photo-list div .displayed {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+    display: inline; }
+    .photo-list div .displayed:last-child {
       margin-right: 0; }
-    .photo-list .tumbnail:nth-child(4n+1) {
-      clear: left; }
-
-img {
-  margin: 15px;
-  width: 30%;
-  height: auto;
-  display: inline-block;
-  float: left; }
+    .photo-list div .displayed img {
+      width: 225px;
+      height: 225px;
+      display: inline; }
 
 .load-more {
   width: 120px;
   height: 120px;
   margin: auto;
   border: 2px solid #468EE1;
-  border-radius: 100px;
+  border-radius: 50px;
   clear: both; }
   .load-more h4 {
     font-size: 15px;

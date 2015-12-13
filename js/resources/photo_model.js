@@ -8,7 +8,7 @@ let PhotoModel = Backbone.Model.extend( {
   idAttribute: 'objectId',
 
   templateData() {
-    let data= this.toJSON();
+    let data = this.toJSON();
     return data;
   }
 

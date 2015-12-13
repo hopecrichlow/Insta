@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
 
+//Index contains both model and collecton
 import {PhotoCollection} from './resources';
 
 import {
@@ -23,34 +24,28 @@ export default Backbone.Router.extend( {
     "photos"    : "showPhotos",
     "photo/:id" : "showDetails", 
     "add"       : "showAdd",
-    "edit/:id"   : "showEdit"
-
+    "edit/:id"  : "showEdit"
   },
 
   // Initialize//
   initialize(appElement) {
-    this.el = appElement;
+    this.el     = appElement;
     this.photos = new PhotoCollection();
-
-
   },
 
   goto(route) {
     this.navigate(route, {
       trigger: true
     });
-
   },
 
   render(component) {
     ReactDom.render(component, this.el);
-
   },
-
 
   // Home View //
   showPhotos() {
-    console.log('show photos page');
+    console.log(this, 'show photos page');
     this.photos.fetch().then(() => {
       this.render(
         <HomeView
@@ -58,34 +53,32 @@ export default Backbone.Router.extend( {
           data={ this.photos.toJSON()}/>
       );
     });
-
   },
 
 
   showDetails(id) {
-    console.log('show details page');
-    let img = this.photos.get(id);
+    console.log('show details page', this);
+    let pht = this.photos.get(id);
 
-    if (img) {
+    if (pht) {
       this.render(
         <HomeView
           onBackClick={() => this.goto('')}
           onEditClick={(id) => this.goto('edit/' + id)}
-          data={img.toJSON()}/>
+          data={pht.toJSON()}/>
       );
       
     } else {
-      img = this.photos.add({objectId: id});
-      img.fetch().then(() => {
+      pht = this.photos.add({objectId: id});
+      pht.fetch().then(() => {
         this.render(
           <DetailsView
             onBackClick={() => this.goto('')}
             onEditClick={(id) => this.goto('edit/' + id)}
-            data={img.toJSON()}/>
+            data={pht.toJSON()}/>
         );
       });
     }
-
   },
 
  
